@@ -1,12 +1,19 @@
-
 import './App.css';
 
 function App() {
-  return (
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-  );
+    return (
+        <div>
+            <header className="sticky top-0 py-5 w-full bg-indigo-50 border-b-2 border-indigo-300 ...">Sticky header</header>
+
+            <main>
+                <div className="flex" style={{minHeight: '120vh'}}>
+                    <div className="flex-1 bg-indigo-50 border-r-2 border-indigo-300 p-4">Left Screen</div>
+                    <div className="flex-1 bg-indigo-50 p-4">Right Screen</div>
+                </div>
+            </main>
+        </div>
+
+    );
 }
 
 export default App;
