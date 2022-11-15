@@ -12,8 +12,14 @@ function App() {
                     <Card />
                     <Card />
                     <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
                 </div>
-                <aside className="flex-1 bg-indigo-50 p-2 card" id="categories">
+                <aside className="flex-1 p-2 card" id="categories">
                     <p2>Sub Reddit</p2>
                     <ul>
                         <li>1</li>
