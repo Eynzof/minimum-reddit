@@ -3,7 +3,7 @@ import Card from "./features/cards/Card";
 
 function App() {
     return (
-        <div id="root">
+        <div className="flex flex-col items-center">
             <header id="header"
                     className="sticky top-0 h-16 w-full p-2 card ...">Sticky header
             </header>

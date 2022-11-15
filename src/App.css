@@ -36,7 +36,7 @@
 }
 
 
-@media only screen and (min-width: 1024px) and (max-width: 2560px) {
+@media only screen and (min-width: 960px) and (max-width: 2560px) {
 
   #header {
     margin-bottom: 1rem;
@@ -44,14 +44,23 @@
 
   #main {
     margin: 0 1rem;
+    width: 50vw;
     min-height: 100vh;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-gap: 0 1rem;
   }
+
+  #articles {
+    width: 640px;
+  }
+
+  aside {
+    width: 310px;
+  }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 960px) {
 
   #post {
     grid-template-columns: 1fr;
