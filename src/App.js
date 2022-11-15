@@ -11,6 +11,21 @@ function App() {
                     <article className="card">1</article>
                     <article className="card">2</article>
                     <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">1</article>
+                    <article className="card">2</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
+                    <article className="card">3</article>
                 </div>
                 <div className="flex-1 bg-indigo-50 p-2 card" id="categories">Sub Reddit</div>
             </main>

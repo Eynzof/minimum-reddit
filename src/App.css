@@ -44,7 +44,7 @@
 
   #main {
     margin: 0 1rem;
-    min-height: 120vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-gap: 0 1rem;
