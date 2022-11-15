@@ -96,4 +96,11 @@
 .post-title {
   color: var(--posttitletextcolor);
   font-size: 18px;
+  font-weight: 500;
+}
+
+.post-image-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }

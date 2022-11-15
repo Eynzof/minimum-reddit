@@ -16,7 +16,7 @@ const Card = (props) => {
             <div className="post-container">
                 <h3 className="post-title">{post.title}</h3>
                 <div className="post-image-container">
-                    {valid_url?<img alt="post" src={valid_url}/> : null}
+                    {valid_url?<img alt="post" src={valid_url} style={{maxHeight: "512px"}}/> : null}
                 </div>
                 <div className="post-details">
                     <span className="post-author"></span>
