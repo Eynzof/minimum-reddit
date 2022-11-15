@@ -1,4 +1,5 @@
 import './App.css';
+import Card from "./features/cards/Card";
 
 function App() {
     return (
@@ -8,24 +9,9 @@ function App() {
             </header>
             <main id="main">
                 <div className="flex-1 p-2" id="articles">
-                    <article className="card">1</article>
-                    <article className="card">2</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">1</article>
-                    <article className="card">2</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
-                    <article className="card">3</article>
+                    <Card />
+                    <Card />
+                    <Card />
                 </div>
                 <aside className="flex-1 bg-indigo-50 p-2 card" id="categories">
                     <p2>Sub Reddit</p2>
