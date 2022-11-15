@@ -3,14 +3,16 @@ import './App.css';
 function App() {
     return (
         <div id="root">
-            <header id="header" className="sticky top-0 h-16 w-full bg-indigo-50 border-b-2 border-indigo-300 p-2 ...">Sticky header
+            <header id="header"
+                    className="sticky top-0 h-16 w-full p-2 card ...">Sticky header
             </header>
             <main id="main">
-                <div className="grid "
-                     style={{minHeight: '120vh'}} id="post">
-                    <div className="flex-1 bg-indigo-50 border-2 border-indigo-300 p-2">Left Screen</div>
-                    <div className="flex-1 bg-indigo-50 border-2 border-indigo-300 p-2">Right Screen</div>
+                <div className="flex-1 p-2" id="articles">
+                    <article className="card">1</article>
+                    <article className="card">2</article>
+                    <article className="card">3</article>
                 </div>
+                <div className="flex-1 bg-indigo-50 p-2 card" id="categories">Sub Reddit</div>
             </main>
         </div>
 
