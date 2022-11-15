@@ -1,12 +1,14 @@
 import React from 'react'
 
 
-const Card = () => {
+const Card = (props) => {
+    const post = props.post;
+    console.log("Card received post: ", post);
     return (
-        <div>
+        <div className="card">
             <div className="post-vote-container"></div>
             <div className="post-container">
-                <h3 className="post-title">Title</h3>
+                <h3 className="post-title">{props.post.data.title}</h3>
                 <div className="post-image-container"></div>
                 <div className="post-details">
                     <span className="post-author"></span>
