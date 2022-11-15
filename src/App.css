@@ -14,6 +14,7 @@
   --color-text-link: #4ec3f5;
   --color-branding: #3d5af1;
   --color-branding-transparent: #3d5af140;
+  --posttitletextcolor: #222222;
 
   --color-alert: #ff304f;
   --color-success: #45b81f;
@@ -92,3 +93,7 @@
   box-shadow: var(--box-shadow-hover);
 }
 
+.post-title {
+  color: var(--posttitletextcolor);
+  font-size: 18px;
+}
