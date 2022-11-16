@@ -1,4 +1,6 @@
 import React from 'react'
+import { UpOutlined, DownOutlined } from "@ant-design/icons";
+import {Button} from "antd";
 
 function checkURL(url) {
     return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -11,8 +13,12 @@ const Card = (props) => {
     const valid_url = checkURL(url)? url : null;
 
     return (
-        <div className="card">
-            <div className="post-vote-container"></div>
+        <div className="post-card flex flex-row">
+            <div className="post-vote-container flex flex-col items-center">
+                <Button type="primary" icon={<UpOutlined />} size='small' className="flex justify-center items-center"/>
+                <span>0</span>
+                <Button type="primary" icon={<DownOutlined />} size='small' className="flex justify-center items-center"/>
+            </div>
             <div className="post-container">
                 <h3 className="post-title">{post.title}</h3>
                 <div className="post-image-container">

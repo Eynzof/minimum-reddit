@@ -29,10 +29,10 @@ function App() {
                     className="sticky top-0 h-16 w-full p-2 card ...">Sticky header
             </header>
             <main id="main">
-                <div className="flex-1 p-2" id="articles">
+                <div className="flex-1" id="articles">
                     <Cards posts={posts}/>
                 </div>
-                <aside className="flex-1 p-2 card" id="categories">
+                <aside className="flex-1 card" id="categories">
                     <p>Sub Reddit</p>
                     <ul>
                         <li>1</li>
