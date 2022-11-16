@@ -129,3 +129,10 @@
   padding: 8px 0;
 }
 
+.post-score {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: rgb(26, 26, 27);
+}
+
