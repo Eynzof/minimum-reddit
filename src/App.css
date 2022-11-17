@@ -137,3 +137,20 @@
   color: rgb(26, 26, 27);
 }
 
+.subreddit-card button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-body);
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  padding: var(--spacing-2);
+  border-radius: var(--radius);
+}
+
+.selected-subreddit {
+  border-left: 5px solid var(--color-branding);
+  background: var(--color-branding-transparent);
+}

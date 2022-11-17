@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Category from "./Category";
 
 
+
 const Categories = (props) => {
+
+    const [currentSubreddit, setCurrentSubreddit] = useState();
+
+    const handleClick =(e) => {
+        setCurrentSubreddit(e.target.value);
+    }
+
     const subreddits = props.subreddit;
-    console.log('component categoreis received: ', subreddits)
+
     return (
         <div>
-            {subreddits ? subreddits.map(subreddit => <Category subreddit={subreddit.data}/>) : null}
+            {subreddits ? subreddits.map(subreddit => {
+                if(subreddit.data.display_name === currentSubreddit) {
+                    return <Category subreddit={subreddit.data} handleClick={()=>{}} selected={true}/>
+                }
+                return <Category subreddit={subreddit.data} handleClick={handleClick} selected={false}/>
+            }) : null}
         </div>
     );
 }
