@@ -9,7 +9,8 @@ const baseURL = "https://www.reddit.com/";
 
 function App() {
     const [posts, setPosts] = useState();
-    const [subreddit, setSubreddit] = useState();
+    const [subreddits, setSubreddits] = useState();
+    const [currentSubreddit, setCurrentSubreddit] = useState();
 
     useEffect(()=> {
         axios.get(baseURL + "r/popular.json").then((resp)=> {
@@ -25,7 +26,7 @@ function App() {
         axios.get(baseURL +"subreddits.json").then((resp)=> {
             const data = resp.data.data;
             const subreddits = data.children
-            setSubreddit(subreddits)
+            setSubreddits(subreddits)
             // console.log("subredditdata", subreddits)
             // const subreddit = data.children;
             // console.log(posts);
@@ -36,6 +37,25 @@ function App() {
             // }
         })
     },[])
+
+    const handleClick = (e) => {
+        console.log(e.target.value)
+        setCurrentSubreddit(e.target.value)
+        const url = subreddits.filter(subreddit => {
+            return subreddit.data.display_name === e.target.value;
+        })[0].data.url;
+        axios.get(baseURL + url + ".json").then((resp)=> {
+            const data = resp.data.data;
+            const posts = data.children;
+            // console.log(posts);
+            if(posts.length === 0) {
+                console.log("No posts fetched")
+            } else {
+                setPosts(posts);
+            }
+        })
+        console.log(url);
+    }
 
 
     return (
@@ -49,7 +69,7 @@ function App() {
                 </div>
                 <aside className="flex-1 card" id="categories">
                     <p>Sub Reddit</p>
-                    <Categories subreddit={subreddit}/>
+                    <Categories subreddits={subreddits} handleClick={handleClick} currentSubreddit={currentSubreddit} />
                 </aside>
             </main>
         </div>

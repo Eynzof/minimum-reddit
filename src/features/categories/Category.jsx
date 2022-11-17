@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Category = ({subreddit, handleClick, selected}) => {
     // console.log('component category received: ', subreddit)
-    const url = subreddit.url;
+    // const url = subreddit.url;
     return (
         <div className={selected ? "selected-subreddit subreddit-card" : "subreddit-card"}>
             <button type="button" onClick={handleClick}

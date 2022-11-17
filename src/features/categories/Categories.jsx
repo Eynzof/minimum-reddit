@@ -1,30 +1,25 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Category from "./Category";
+import PropTypes from 'prop-types';
 
 
-
-const Categories = (props) => {
-
-    const [currentSubreddit, setCurrentSubreddit] = useState();
-
-    const handleClick =(e) => {
-        setCurrentSubreddit(e.target.value);
-    }
-
-    const subreddits = props.subreddit;
+const Categories = ({ subreddits, handleClick, currentSubreddit }) => {
 
     return (
         <div>
             {subreddits ? subreddits.map(subreddit => {
                 if(subreddit.data.display_name === currentSubreddit) {
-                    return <Category subreddit={subreddit.data} handleClick={()=>{}} selected={true}/>
+                    return <Category key={subreddit.data.display_name} subreddit={subreddit.data} handleClick={()=>{}} selected={true}/>
                 }
-                return <Category subreddit={subreddit.data} handleClick={handleClick} selected={false}/>
+                return <Category key={subreddit.data.display_name} subreddit={subreddit.data} handleClick={handleClick} selected={false}/>
             }) : null}
         </div>
     );
 }
 
-Categories.propTypes = {};
+Categories.propTypes = {
+    subreddits: PropTypes.array,
+    handleClick: PropTypes.func
+};
 
 export default Categories;
