@@ -147,7 +147,7 @@
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  padding: var(--spacing-2);
+  padding: 0.5rem 1rem 0.5rem 0;
   border-radius: var(--radius);
 }
 
@@ -164,4 +164,23 @@
   align-items: center;
   color: var(--color-branding);
   font-size: 2rem;
+}
+
+.subreddit-logo {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 24px;
+  flex: none;
+  font-size: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 8px;
+  width: 32px;
+}
+
+.subreddit-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-text-header)
 }

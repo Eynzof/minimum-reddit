@@ -29,12 +29,9 @@ function App() {
         })
     }, [])
 
-    const handleClick = (e) => {
-        console.log(e.target.value)
-        setCurrentSubreddit(e.target.value)
-        const url = subreddits.filter(subreddit => {
-            return subreddit.data.display_name === e.target.value;
-        })[0].data.url;
+    const handleClick = (e, url) => {
+        setCurrentSubreddit(e.currentTarget.value)
+
         axios.get(baseURL + url + ".json").then((resp) => {
             const data = resp.data.data;
             const posts = data.children;
@@ -45,7 +42,6 @@ function App() {
                 setPosts(posts);
             }
         })
-        console.log(url);
     }
 
 
@@ -67,8 +63,8 @@ function App() {
                 <div className="flex-1" id="articles">
                     <Cards posts={posts}/>
                 </div>
-                <aside className="flex-1 card" id="categories">
-                    <p>Sub Reddit</p>
+                <aside className="flex-1 card" id="categories" >
+                    <h2 className="subreddit-title">Subreddits</h2>
                     <Categories subreddits={subreddits} handleClick={handleClick} currentSubreddit={currentSubreddit}/>
                 </aside>
             </main>
