@@ -5,6 +5,8 @@ import axios from "axios";
 import Categories from "./features/categories/Categories";
 import Header from "./components/Header";
 
+import 'antd/dist/antd.css';
+
 const baseURL = "https://www.reddit.com";
 
 function App() {

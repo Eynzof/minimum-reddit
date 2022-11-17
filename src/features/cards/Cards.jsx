@@ -1,11 +1,19 @@
 import React from 'react';
 import Card from "./Card";
+import CardSkeleton from "./CardSkeleton";
 
 const Cards = ({posts, isLoading}) => {
     if (isLoading) {
         return (<div className="flex flex-col">
             {/*TODO: skeleton*/}
-            <div>Loading...</div>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
+            <CardSkeleton/>
         </div>)
     }
     if (posts) {

@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return (
             <header id="header"
-                    className="sticky top-0 h-16 w-full card ...">
+                    className="sticky top-0 h-16 w-full card ..." style={{ zIndex:"50"}}>
                 <div id="header-logo" className="flex flex-row items-center">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
                          className="logo-icon mr-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" >
