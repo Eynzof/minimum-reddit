@@ -37,8 +37,10 @@ function App() {
     }, [])
 
     const handleClick = (e, url) => {
+        setIsLoading(true)
         setCurrentSubreddit(e.currentTarget.value)
         axios.get(baseURL + url + ".json").then((resp) => {
+            setIsLoading(false);
             const data = resp.data.data;
             const posts = data.children;
             // console.log(posts);
