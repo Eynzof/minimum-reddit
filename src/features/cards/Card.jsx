@@ -16,7 +16,7 @@ function m(n, d) {
 
 const Card = (props) => {
     const post = props.post.data;
-    console.log("Card received post: ", post);
+    // console.log("Card received post: ", post);
     const url = post['url'];
     const valid_url = checkURL(url) ? url : null;
 

@@ -1,12 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
+import Category from "./Category";
 
 
-class Categories extends Component {
-    render() {
-        return (
-            <div></div>
-        );
-    }
+const Categories = (props) => {
+    const subreddits = props.subreddit;
+    console.log('component categoreis received: ', subreddits)
+    return (
+        <div>
+            {subreddits ? subreddits.map(subreddit => <Category subreddit={subreddit.data}/>) : null}
+        </div>
+    );
 }
 
 Categories.propTypes = {};
