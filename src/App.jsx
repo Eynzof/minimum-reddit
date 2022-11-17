@@ -3,6 +3,7 @@ import Card from "./features/cards/Card";
 import Cards from "./features/cards/Cards";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Categories from "./features/categories/Categories";
 
 const baseURL = "https://www.reddit.com/r/popular.json";
 
@@ -34,14 +35,7 @@ function App() {
                 </div>
                 <aside className="flex-1 card" id="categories">
                     <p>Sub Reddit</p>
-                    <ul>
-                        <li>1</li>
-                        <li>1</li>
-                        <li>1</li>
-                        <li>1</li>
-                        <li>1</li>
-                        <li>1</li>
-                    </ul>
+                    <Categories/>
                 </aside>
             </main>
         </div>
