@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import { Input, Space } from 'antd';
 const { Search } = Input;
 
-const Header =() => {
+const Header =(props) => {
 
     const onSearch = (keyword) => {
         console.log('clicked', keyword)
+        props.handleSearch(keyword);
     }
     return (
         <header id="header"
@@ -19,7 +20,7 @@ const Header =() => {
                 <span style={{fontSize: "1rem"}}>Reddit<span style={{color: "var(--color-text-header)"}}>Minimum</span></span>
             </div>
             <div style={{padding: "1rem 0"}}>
-                <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 400 }} />
+                <Search placeholder="input search text" onSearch={onSearch} style={{ width: 400 }} />
             </div>
         </header>
     );

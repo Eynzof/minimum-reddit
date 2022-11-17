@@ -54,10 +54,20 @@ function App() {
         })
     }
 
+    const handleSearch= (keyword) => {
+        // console.log(posts)
+        const results = posts.filter(post => {
+            return post.data.title.indexOf(keyword) >=0;
+        })
+        setPosts(results)
+        // console.log(results)
+    }
+
+
 
     return (
         <div className="flex flex-col items-center ">
-            <Header/>
+            <Header handleSearch={handleSearch}/>
             <main id="main">
                 <div className="flex-1" id="articles">
                     <Cards posts={posts} isLoading={isLoading}/>
