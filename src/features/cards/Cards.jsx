@@ -5,7 +5,7 @@ const Cards = (props) => {
     const posts = props.posts;
     return (<div className="flex flex-col">
         {posts ? posts.map(post => {
-            return <Card key={post.id} post={post}/>
+            return <Card key={post.data.title} post={post}/>
         }) : <p>No post fetched</p>}
     </div>)
 }

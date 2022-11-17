@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Categories from "./features/categories/Categories";
 
-const baseURL = "https://www.reddit.com/";
+const baseURL = "https://www.reddit.com";
 
 function App() {
     const [posts, setPosts] = useState();
@@ -12,7 +12,7 @@ function App() {
     const [currentSubreddit, setCurrentSubreddit] = useState();
 
     useEffect(() => {
-        axios.get(baseURL + "r/popular.json").then((resp) => {
+        axios.get(baseURL + "/r/popular.json").then((resp) => {
             const data = resp.data.data;
             const posts = data.children;
             // console.log(posts);
@@ -22,7 +22,7 @@ function App() {
                 setPosts(posts);
             }
         })
-        axios.get(baseURL + "subreddits.json").then((resp) => {
+        axios.get(baseURL + "/subreddits.json").then((resp) => {
             const data = resp.data.data;
             const subreddits = data.children
             setSubreddits(subreddits)
