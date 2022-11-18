@@ -6,21 +6,7 @@ import {useSelector} from "react-redux";
 
 const Cards = ({posts, _}) => {
     const isLoading = useSelector(selectStatus);
-    console.log('isLoading', isLoading)
-    if (isLoading === 'loading') {
-        return (<div className="flex flex-col">
-            {/*TODO: skeleton*/}
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-        </div>)
-    }
-    if (isLoading === 'succeeded') {
+    if (isLoading === 'succeeded' && posts) {
         return (
             <div className="flex flex-col">
                 {posts.map(post => {
@@ -29,19 +15,16 @@ const Cards = ({posts, _}) => {
             </div>
         );
     }
-    if (isLoading === 'idle') {
-        return <div className="flex flex-col">
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-            <CardSkeleton/>
-        </div>
-    }
-    return <p>Error</p>
+    return <div className="flex flex-col">
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+    </div>
 }
 
 export default Cards
