@@ -66,7 +66,7 @@ function App() {
 
 
     return (
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col items-center">
             <Header handleSearch={handleSearch}/>
             <main id="main">
                 <div className="flex-1" id="articles">

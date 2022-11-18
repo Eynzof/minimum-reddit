@@ -123,6 +123,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .post-vote-container {
@@ -183,4 +184,13 @@
   font-size: 24px;
   font-weight: bold;
   color: var(--color-text-header)
+}
+
+.post-interaction-comments {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.post-author {
+  font-size: 12px;
 }
