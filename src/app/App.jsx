@@ -10,7 +10,11 @@ import 'antd/dist/antd.css';
 const baseURL = "https://www.reddit.com";
 
 function App() {
+
+    // card slice
     const [posts, setPosts] = useState();
+
+    // subreddit slice
     const [subreddits, setSubreddits] = useState();
     const [currentSubreddit, setCurrentSubreddit] = useState();
 
