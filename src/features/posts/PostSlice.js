@@ -19,12 +19,11 @@ const PostSlice = createSlice({
     },
     reducers: {
         updatePost: (state, action) => {
-            const newPosts = action.payload;
-            state.posts = newPosts;
+            state.posts = action.payload;
         }
     },
     extraReducers: {
-        [fetchPost.pending]: (state, action) => {
+        [fetchPost.pending]: (state, _) => {
             state.status = 'loading';
         },
         [fetchPost.fulfilled]: (state, action) => {

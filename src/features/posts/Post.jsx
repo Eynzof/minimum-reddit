@@ -14,9 +14,9 @@ function m(n, d) {
     return Math.round(n * d / p(10, x)) / d + " kMGTPE"[x / 3]
 }
 
-const Card = (props) => {
+const Post = (props) => {
     const post = props.post.data;
-    // console.log("Card received post: ", post);
+    // console.log("Post received post: ", post);
     const url = post['url'];
     const valid_url = checkURL(url) ? url : null;
 
@@ -47,6 +47,6 @@ const Card = (props) => {
     )
 }
 
-Card.propTypes = {}
+Post.propTypes = {}
 
-export default Card
+export default Post

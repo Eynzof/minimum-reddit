@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, Skeleton} from "antd";
 import {DownOutlined, UpOutlined} from "@ant-design/icons";
 
-const CardSkeleton = () => {
+const PostSkeleton = () => {
     return (
         <div className="post-card flex flex-row">
             <div className="post-vote-container flex flex-col items-center">
@@ -26,4 +26,4 @@ const CardSkeleton = () => {
     )
 }
 
-export default CardSkeleton
+export default PostSkeleton

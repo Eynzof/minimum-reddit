@@ -1,31 +1,31 @@
 import React from 'react';
-import Card from "./Card";
-import CardSkeleton from "./CardSkeleton";
+import Post from "./Post";
+import PostSkeleton from "./PostSkeleton";
 import {selectStatus, selectPosts} from "./PostSlice";
 import {useSelector} from "react-redux";
 
-const Cards = () => {
+const Posts = () => {
     const isLoading = useSelector(selectStatus);
     const posts = useSelector(selectPosts)
     if (isLoading === 'succeeded' && posts) {
         return (
             <div className="flex flex-col">
                 {posts.map(post => {
-                    return <Card key={post.data.id} post={post}/>
+                    return <Post key={post.data.id} post={post}/>
                 })}
             </div>
         );
     }
     return <div className="flex flex-col">
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
-        <CardSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
+        <PostSkeleton/>
     </div>
 }
 
-export default Cards
+export default Posts
