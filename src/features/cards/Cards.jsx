@@ -4,7 +4,7 @@ import CardSkeleton from "./CardSkeleton";
 import {selectStatus} from "./PostSlice";
 import {useSelector} from "react-redux";
 
-const Cards = ({posts, _}) => {
+const Cards = ({posts}) => {
     const isLoading = useSelector(selectStatus);
     if (isLoading === 'succeeded' && posts) {
         return (

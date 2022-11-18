@@ -21,8 +21,6 @@ function App() {
     const [subreddits, setSubreddits] = useState();
     const [currentSubreddit, setCurrentSubreddit] = useState();
 
-    const [isLoading, setIsLoading] = useState(false);
-
     // for redux test
     useEffect(()=>{
         console.log('test');
@@ -31,7 +29,6 @@ function App() {
 
     // page initialize state
     useEffect(() => {
-        setIsLoading(true);
         axios.get(baseURL + "/r/popular.json").then((resp) => {
             const data = resp.data.data;
             const posts = data.children;
@@ -43,7 +40,6 @@ function App() {
             }
         })
         axios.get(baseURL + "/subreddits.json").then((resp) => {
-            setIsLoading(false);
             const data = resp.data.data;
             const subreddits = data.children
             setSubreddits(subreddits)
@@ -51,10 +47,8 @@ function App() {
     }, [])
 
     const handleClick = (e, url) => {
-        setIsLoading(true)
         setCurrentSubreddit(e.currentTarget.value)
         axios.get(baseURL + url + ".json").then((resp) => {
-            setIsLoading(false);
             const data = resp.data.data;
             const posts = data.children;
             // console.log(posts);
@@ -82,7 +76,7 @@ function App() {
             <Header handleSearch={handleSearch}/>
             <main id="main">
                 <div className="flex-1" id="articles">
-                    <Cards posts={posts} isLoading={isLoading}/>
+                    <Cards posts={posts}/>
                 </div>
                 <aside className="flex-1 card" id="categories" >
                     <h2 className="subreddit-title">Subreddits</h2>
