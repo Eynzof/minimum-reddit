@@ -4,8 +4,11 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Categories from "../features/categories/Categories";
 import Header from "../components/Header";
+import { useDispatch } from "react-redux";
+import { fetchPost } from "../actions";
 
 import 'antd/dist/antd.css';
+import store from "./store";
 
 const baseURL = "https://www.reddit.com";
 
@@ -20,6 +23,11 @@ function App() {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    // for redux test
+    useEffect(()=>{
+        console.log('test');
+        store.dispatch(fetchPost("/r/popular.json"))
+    },[])
 
     // page initialize state
     useEffect(() => {

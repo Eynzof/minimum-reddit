@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postReducer from "../features/cards/CardSlice";
+import postReducer from "../features/cards/PostSlice";
 
 export default configureStore({
     reducer: {
