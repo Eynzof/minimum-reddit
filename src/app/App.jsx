@@ -1,9 +1,9 @@
 import './App.css';
-import Cards from "./features/cards/Cards";
+import Cards from "../features/cards/Cards";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import Categories from "./features/categories/Categories";
-import Header from "./components/Header";
+import Categories from "../features/categories/Categories";
+import Header from "../components/Header";
 
 import 'antd/dist/antd.css';
 
