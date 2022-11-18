@@ -34,7 +34,7 @@ const PostSlice = createSlice({
     }
 })
 
-export const selectPosts = (state) => state.posts;
+export const selectPosts = (state) => state.posts.posts;
 export const selectStatus = (state) => state.posts.status;
 
 export const { updatePost } = PostSlice.actions;

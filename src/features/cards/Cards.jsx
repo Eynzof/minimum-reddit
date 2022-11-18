@@ -1,11 +1,12 @@
 import React from 'react';
 import Card from "./Card";
 import CardSkeleton from "./CardSkeleton";
-import {selectStatus} from "./PostSlice";
+import {selectStatus, selectPosts} from "./PostSlice";
 import {useSelector} from "react-redux";
 
-const Cards = ({posts}) => {
+const Cards = () => {
     const isLoading = useSelector(selectStatus);
+    const posts = useSelector(selectPosts)
     if (isLoading === 'succeeded' && posts) {
         return (
             <div className="flex flex-col">
