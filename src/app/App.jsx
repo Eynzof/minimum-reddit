@@ -2,7 +2,7 @@ import './App.css';
 import Posts from "../features/posts/Posts";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import Categories from "../features/categories/Categories";
+import Subreddits from "../features/subreddits/Subreddits";
 import Header from "../components/Header";
 import {useDispatch, useSelector} from "react-redux";
 import { fetchPost } from "../features/posts/PostSlice";
@@ -11,6 +11,7 @@ import 'antd/dist/antd.css';
 import store from "./store";
 import {selectPosts} from "../features/posts/PostSlice";
 import { updatePost } from "../features/posts/PostSlice";
+import {fetchSubreddit} from "../features/subreddits/SubredditSlice";
 
 const baseURL = "https://www.reddit.com";
 
@@ -22,22 +23,23 @@ function App() {
     const posts = useSelector(selectPosts);
 
     // subreddit slice
-    const [subreddits, setSubreddits] = useState();
+
     const [currentSubreddit, setCurrentSubreddit] = useState();
 
     // initial data load
     useEffect(()=>{
         store.dispatch(fetchPost("/r/popular.json"))
+        store.dispatch(fetchSubreddit())
     },[])
 
-    // page initialize state
-    useEffect(() => {
-        axios.get(baseURL + "/subreddits.json").then((resp) => {
-            const data = resp.data.data;
-            const subreddits = data.children
-            setSubreddits(subreddits)
-        })
-    }, [])
+    // // page initialize state
+    // useEffect(() => {
+    //     axios.get(baseURL + "/subreddits.json").then((resp) => {
+    //         const data = resp.data.data;
+    //         const subreddits = data.children
+    //         setSubreddits(subreddits)
+    //     })
+    // }, [])
 
     const handleClick = (e, url) => {
         setCurrentSubreddit(e.currentTarget.value)
@@ -68,7 +70,7 @@ function App() {
                 </div>
                 <aside className="flex-1 card" id="categories" >
                     <h2 className="subreddit-title">Subreddits</h2>
-                    <Categories subreddits={subreddits} handleClick={handleClick} currentSubreddit={currentSubreddit}/>
+                    <Subreddits handleClick={handleClick} currentSubreddit={currentSubreddit}/>
                 </aside>
             </main>
         </div>

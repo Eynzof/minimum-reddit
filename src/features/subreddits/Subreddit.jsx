@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Category = ({subreddit, handleClick, selected}) => {
+const Subreddit = ({subreddit, handleClick, selected}) => {
     // console.log('component category received: ', subreddit)
     const url = subreddit.url;
     // console.log(url)
@@ -21,10 +21,10 @@ const Category = ({subreddit, handleClick, selected}) => {
     );
 }
 
-Category.propTypes = {
+Subreddit.propTypes = {
     subreddit: PropTypes.object,
     handleClick: PropTypes.func,
     selected: PropTypes.bool
 };
 
-export default Category;
+export default Subreddit;

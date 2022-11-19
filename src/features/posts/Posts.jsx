@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 const Posts = () => {
     const isLoading = useSelector(selectStatus);
     const posts = useSelector(selectPosts)
-    if (isLoading === 'succeeded' && posts) {
+    if (isLoading === 'succeeded' && posts.length > 0) {
         return (
             <div className="flex flex-col">
                 {posts.map(post => {
