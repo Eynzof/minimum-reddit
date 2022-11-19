@@ -180,6 +180,19 @@
   width: 32px;
 }
 
+.subreddit-logo-skeleton {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 24px;
+  flex: none;
+  font-size: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin: 0 8px;
+  width: 24px;
+}
+
 .subreddit-title {
   font-size: 24px;
   font-weight: bold;
