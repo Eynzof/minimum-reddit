@@ -47,6 +47,4 @@ const Post = (props) => {
     )
 }
 
-Post.propTypes = {}
-
 export default Post

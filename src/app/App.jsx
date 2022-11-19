@@ -5,7 +5,7 @@ import axios from "axios";
 import Categories from "../features/categories/Categories";
 import Header from "../components/Header";
 import {useDispatch, useSelector} from "react-redux";
-import { fetchPost } from "../actions";
+import { fetchPost } from "../features/posts/PostSlice";
 
 import 'antd/dist/antd.css';
 import store from "./store";

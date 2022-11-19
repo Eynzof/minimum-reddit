@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Input, Space } from 'antd';
+import React  from 'react';
+import { Input } from 'antd';
 const { Search } = Input;
 
 const Header =(props) => {
