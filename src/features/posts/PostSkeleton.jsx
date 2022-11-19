@@ -12,9 +12,9 @@ const PostSkeleton = () => {
                         className="flex justify-center items-center" style={{border: "none"}}/>
             </div>
             <div className="post-container">
-                <h3 className="post-title"><Skeleton/></h3>
+                <h3 className="post-title"><Skeleton active/></h3>
                 <div className="post-image-container">
-                    <Skeleton/>
+                    <Skeleton active/>
                 </div>
                 <div className="post-details">
                     <span className="post-author"></span>

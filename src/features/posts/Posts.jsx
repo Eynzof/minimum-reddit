@@ -11,7 +11,7 @@ const Posts = () => {
         return (
             <div className="flex flex-col">
                 {posts.map(post => {
-                    return <Post key={post.data.id} post={post}/>
+                    return <Post key={post.data.id} post={post.data}/>
                 })}
             </div>
         );
