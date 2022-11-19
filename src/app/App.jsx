@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import {useDispatch, useSelector} from "react-redux";
 import { fetchPost } from "../features/posts/PostSlice";
 
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css'
 import {selectPosts} from "../features/posts/PostSlice";
 import { updatePost } from "../features/posts/PostSlice";
 import {fetchSubreddit, updateCurrent} from "../features/subreddits/SubredditSlice";
