@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Minimum Reddit",
+  "name": "A reddit minimum clone",
   "icons": [
     {
       "src": "favicon.ico",
