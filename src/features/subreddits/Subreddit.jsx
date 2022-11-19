@@ -31,9 +31,7 @@ const Subreddit = ({subreddit}) => {
 }
 
 Subreddit.propTypes = {
-    subreddit: PropTypes.object,
-    handleClick: PropTypes.func,
-    selected: PropTypes.bool
+    subreddit: PropTypes.object
 };
 
 export default Subreddit;
