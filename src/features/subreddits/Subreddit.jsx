@@ -7,7 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 const Subreddit = ({subreddit}) => {
 
     const dispatch = useDispatch();
-    const selected = useSelector(selectCurrentSubredditName) === subreddit.display_name;
+    const display = subreddit.display_name;
+    const selected = useSelector(selectCurrentSubredditName) === display;
 
     const handleClick = (e, url) => {
         dispatch(updateCurrent(e.currentTarget.value));
@@ -20,10 +21,10 @@ const Subreddit = ({subreddit}) => {
     return (
         <div className={selected ? "selected-subreddit subreddit-card" : "subreddit-card"}>
             <button type="button" onClick={event => handleClick(event, url)}
-                    value={subreddit.display_name}>
+                    value={display}>
                 <img alt="Subreddit Icon" role="presentation" className="subreddit-logo"
                      src={logo_url}/>
-                <span>{subreddit.display_name}</span>
+                <span>{display}</span>
             </button>
         </div>
     );

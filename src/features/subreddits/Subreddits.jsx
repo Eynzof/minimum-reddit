@@ -18,7 +18,31 @@ const Subreddits = () => {
     }
     return (
         <div>
-            {Array(25).fill(<SubredditSkeleton/>)}
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
+            <SubredditSkeleton/>
         </div>
     );
 }
