@@ -16,8 +16,8 @@ export function m(n) {
     return n.toString();
 }
 
-const Post = ({rawpost}) => {
-    const post = rawpost.data;
+const Post = ({post}) => {
+
     // console.log("Post received post: ", post);
     const url = post['url'];
     const valid_url = checkURL(url) ? url : null;
