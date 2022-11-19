@@ -6,12 +6,14 @@ function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
 
-function m(n, d) {
-    let x = ('' + n).length;
-    let p = Math.pow
-    d = p(10, d);
-    x -= x % 3
-    return Math.round(n * d / p(10, x)) / d + " kMGTPE"[x / 3]
+export function m(n) {
+    if (n < 0) {
+        return '0';
+    }
+    if (n > 1000) {
+        return Math.round(n / 1000) + 'k';
+    }
+    return n.toString();
 }
 
 const Post = (props) => {
@@ -23,8 +25,9 @@ const Post = (props) => {
     return (
         <div className="post-card flex flex-row">
             <div className="post-vote-container flex flex-col items-center">
-                <Button type="ghost" icon={<UpOutlined/>} size='small' className="flex justify-center items-center" style={{border: "none"}}/>
-                <span className="post-score">{m(post.score, 1)}</span>
+                <Button type="ghost" icon={<UpOutlined/>} size='small' className="flex justify-center items-center"
+                        style={{border: "none"}}/>
+                <span className="post-score">{m(post.score)}</span>
                 <Button type="ghost" icon={<DownOutlined/>} size='small'
                         className="flex justify-center items-center" style={{border: "none"}}/>
             </div>
@@ -40,7 +43,7 @@ const Post = (props) => {
                 </div>
                 <div className="post-interaction flex items-center">
                     <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
-                    <div className="post-interaction-comments" >{post.num_comments} comments</div>
+                    <div className="post-interaction-comments">{post.num_comments} comments</div>
                 </div>
             </div>
         </div>
