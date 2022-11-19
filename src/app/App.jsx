@@ -1,19 +1,15 @@
 import './App.css';
 import Posts from "../features/posts/Posts";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useEffect} from "react";
 import Subreddits from "../features/subreddits/Subreddits";
 import Header from "../components/Header";
 import {useDispatch, useSelector} from "react-redux";
 import { fetchPost } from "../features/posts/PostSlice";
 
 import 'antd/dist/antd.css';
-import store from "./store";
 import {selectPosts} from "../features/posts/PostSlice";
 import { updatePost } from "../features/posts/PostSlice";
 import {fetchSubreddit, updateCurrent} from "../features/subreddits/SubredditSlice";
-
-const baseURL = "https://www.reddit.com";
 
 function App() {
 
@@ -24,31 +20,13 @@ function App() {
 
     // initial data load
     useEffect(()=>{
-        store.dispatch(fetchPost("/r/popular.json"))
-        store.dispatch(fetchSubreddit())
+        dispatch(fetchPost("/r/popular.json"))
+        dispatch(fetchSubreddit())
     },[])
 
-    // // page initialize state
-    // useEffect(() => {
-    //     axios.get(baseURL + "/subreddits.json").then((resp) => {
-    //         const data = resp.data.data;
-    //         const subreddits = data.children
-    //         setSubreddits(subreddits)
-    //     })
-    // }, [])
-
     const handleClick = (e, url) => {
-
         dispatch(updateCurrent(e.currentTarget.value))
-        axios.get(baseURL + url + ".json").then((resp) => {
-            const data = resp.data.data;
-            const posts = data.children;
-            if (posts.length === 0) {
-                console.log("No posts fetched")
-            } else {
-                dispatch(updatePost(posts))
-            }
-        })
+        dispatch(fetchPost(url + ".json"))
     }
 
     const handleSearch= (keyword) => {
