@@ -22,7 +22,7 @@ function App() {
     useEffect(()=>{
         dispatch(fetchPost("/r/popular.json"))
         dispatch(fetchSubreddit())
-    },[])
+    },[dispatch])
 
     const handleClick = (e, url) => {
         dispatch(updateCurrent(e.currentTarget.value))
