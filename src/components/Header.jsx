@@ -5,7 +5,6 @@ const { Search } = Input;
 const Header =(props) => {
 
     const onSearch = (keyword) => {
-        console.log('clicked', keyword)
         props.handleSearch(keyword);
     }
     return (
