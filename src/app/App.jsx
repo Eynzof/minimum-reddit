@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 import store from "./store";
 import {selectPosts} from "../features/posts/PostSlice";
 import { updatePost } from "../features/posts/PostSlice";
-import {fetchSubreddit} from "../features/subreddits/SubredditSlice";
+import {fetchSubreddit, updateCurrent} from "../features/subreddits/SubredditSlice";
 
 const baseURL = "https://www.reddit.com";
 
@@ -21,10 +21,6 @@ function App() {
 
     // card slice
     const posts = useSelector(selectPosts);
-
-    // subreddit slice
-
-    const [currentSubreddit, setCurrentSubreddit] = useState();
 
     // initial data load
     useEffect(()=>{
@@ -42,7 +38,8 @@ function App() {
     // }, [])
 
     const handleClick = (e, url) => {
-        setCurrentSubreddit(e.currentTarget.value)
+
+        dispatch(updateCurrent(e.currentTarget.value))
         axios.get(baseURL + url + ".json").then((resp) => {
             const data = resp.data.data;
             const posts = data.children;
@@ -70,7 +67,7 @@ function App() {
                 </div>
                 <aside className="flex-1 card" id="categories" >
                     <h2 className="subreddit-title">Subreddits</h2>
-                    <Subreddits handleClick={handleClick} currentSubreddit={currentSubreddit}/>
+                    <Subreddits handleClick={handleClick}/>
                 </aside>
             </main>
         </div>

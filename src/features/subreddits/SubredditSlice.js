@@ -15,10 +15,13 @@ const SubredditSlice = createSlice({
     name: "subreddits",
     initialState: {
         subreddits: {},
-        status: 'idle'
+        status: 'idle',
+        currentSubredditName: ''
     },
     reducers: {
-
+        updateCurrent: (state, action) => {
+            state.currentSubredditName = action.payload;
+        }
     },
     extraReducers: {
         [fetchSubreddit.pending]: (state, _) => {
@@ -32,4 +35,7 @@ const SubredditSlice = createSlice({
 })
 export const selectStatus = (state) => state.subreddits.status;
 export const selectSubreddits = (state) => state.subreddits.subreddits;
+export const selectCurrentSubredditName = (state) => state.subreddits.currentSubredditName;
+
+export const { updateCurrent } = SubredditSlice.actions;
 export default SubredditSlice.reducer;

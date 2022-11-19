@@ -2,20 +2,19 @@ import React from 'react';
 import Subreddit from "./Subreddit";
 import PropTypes from 'prop-types';
 import {useSelector} from "react-redux";
-import {selectStatus, selectSubreddits} from "./SubredditSlice";
+import {selectCurrentSubredditName, selectStatus, selectSubreddits} from "./SubredditSlice";
 import {SubredditSkeleton} from "./SubredditSkeleton";
 
-const Subreddits = ({_, handleClick, currentSubreddit}) => {
+const Subreddits = ({_, handleClick}) => {
     const subreddits = useSelector(selectSubreddits)
     const status = useSelector(selectStatus);
-
-
+    const currentSubredditName = useSelector(selectCurrentSubredditName);
 
     if (status === 'succeeded' && subreddits.length > 0) {
         return (
             <div>
                 {subreddits.map(subreddit => {
-                    if (subreddit.data.display_name === currentSubreddit) {
+                    if (subreddit.data.display_name === currentSubredditName) {
                         return <Subreddit key={subreddit.data.display_name} subreddit={subreddit.data}
                                           handleClick={() => {
                                           }} selected={true}/>
@@ -28,37 +27,12 @@ const Subreddits = ({_, handleClick, currentSubreddit}) => {
     }
     return (
         <div>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
-            <SubredditSkeleton/>
+            {Array(25).fill(<SubredditSkeleton/>)}
         </div>
     );
 }
 
 Subreddits.propTypes = {
-    subreddits: PropTypes.array,
     handleClick: PropTypes.func
 };
 
