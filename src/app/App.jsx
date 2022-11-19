@@ -29,16 +29,10 @@ function App() {
         dispatch(fetchPost(url + ".json"))
     }
 
-    const handleSearch= (keyword) => {
-        const results = posts.filter(post => {
-            return post.data.title.indexOf(keyword) >=0;
-        })
-        dispatch(updatePost(results));
-    }
 
     return (
         <div className="flex flex-col items-center">
-            <Header handleSearch={handleSearch}/>
+            <Header />
             <main id="main">
                 <div className="flex-1" id="articles">
                     <Posts />

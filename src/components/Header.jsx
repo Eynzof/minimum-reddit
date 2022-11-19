@@ -1,11 +1,17 @@
 import React  from 'react';
 import { Input } from 'antd';
+import {useDispatch, useSelector} from "react-redux";
+import {selectPosts, updatePost} from "../features/posts/PostSlice";
 const { Search } = Input;
 
-const Header =(props) => {
-
-    const onSearch = (keyword) => {
-        props.handleSearch(keyword);
+const Header =() => {
+    const dispatch = useDispatch();
+    const posts = useSelector(selectPosts);
+    const handleSearch= (keyword) => {
+        const results = posts.filter(post => {
+            return post.data.title.indexOf(keyword) >=0;
+        })
+        dispatch(updatePost(results));
     }
     return (
         <header id="header"
@@ -19,7 +25,7 @@ const Header =(props) => {
                 <span style={{fontSize: "1rem"}}>Reddit<span style={{color: "var(--color-text-header)"}}>Minimum</span></span>
             </div>
             <div style={{padding: "1rem 0"}}>
-                <Search placeholder="input search text" onSearch={onSearch} style={{ width: 400 }} />
+                <Search placeholder="input search text" onSearch={handleSearch} style={{ width: 400 }} />
             </div>
         </header>
     );
