@@ -22,18 +22,7 @@ const Post = ({post}) => {
     const url = post['url'];
     const valid_url = checkURL(url) ? url : null;
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+    const [open, setOpen] = useState(false);
 
     return (
         <div className="post-card flex flex-row">
@@ -51,16 +40,16 @@ const Post = ({post}) => {
                     <div className="post-comments-container"></div>
                 </div>
 
-                <Button type="link" onClick={showModal} style={{padding: '0'}}>
-                    <h3 className="post-title">{post.title}</h3>
-                </Button>
-                <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>content</Modal>
+
+                <a className="post-title" href={post.url}>{post.title}</a>
                 <div className="post-image-container">
                     {valid_url ? <img alt="post" src={valid_url} style={{maxHeight: "512px"}}/> : null}
                 </div>
-                <div className="post-interaction flex items-center">
-                    <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
-                    <div className="post-interaction-comments">{post.num_comments} comments</div>
+                <div >
+                    <Button type="text" className="post-interaction items-center" style={{display: 'flex', padding: '0'}} onClick={() => setOpen(true)} >
+                        <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
+                        <div className="post-interaction-comments">{post.num_comments} comments</div>
+                    </Button>
                 </div>
             </div>
         </div>
