@@ -15,8 +15,8 @@ const Header =() => {
     }
     return (
         <header id="header"
-                className="grid grid-cols-3 sticky top-0 h-16 w-full card ..." style={{ zIndex:"50"}}>
-            <div id="header-logo" className="flex flex-row items-center">
+                className="top-0 h-16 card ..." style={{ zIndex:"50"}}>
+            <div id="header-logo">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512"
                      className="logo-icon mr-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" >
                     <path
@@ -25,7 +25,7 @@ const Header =() => {
                 <span style={{fontSize: "1rem"}}>Reddit<span style={{color: "var(--color-text-header)"}}>Minimum</span></span>
             </div>
             <div style={{padding: "1rem 0"}}>
-                <Search placeholder="input search text" onSearch={handleSearch} style={{ width: 400 }} />
+                <Search id="header-searchbar" placeholder="input search text" onSearch={handleSearch}  />
             </div>
         </header>
     );
