@@ -242,3 +242,7 @@
 .post-author {
   font-size: 12px;
 }
+
+.comment-author {
+  color: var(--posttitletextcolor);
+}
