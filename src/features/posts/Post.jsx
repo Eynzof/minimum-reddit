@@ -1,6 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {CommentOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
 import {Button} from "antd";
+import Comments from "./comments/Comments";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchComment, selectCommentsById, selectCommentsInStore, selectLoaded} from "./comments/CommentSlice";
+import parseTime from "../../utils/parseTime";
+import {CommentSkeleton} from "./comments/CommentSkeleton";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -18,9 +23,29 @@ export function m(n) {
 
 const Post = ({post}) => {
 
-    // console.log("Post received post: ", post);
-    const url = post['url'];
-    const valid_url = checkURL(url) ? url : null;
+    const dispatch = useDispatch();
+
+    const id = post['id'];
+    const imageurl = post['url'];
+    const valid_url = checkURL(imageurl) ? imageurl : null;
+
+    const [open, setOpen] = useState(false);
+
+    // Comments
+    const loaded = useSelector(selectLoaded);
+    const comments = useSelector(selectCommentsById(id))
+
+    const handleClick = () => {
+        setOpen(!open);
+        if (!open) {
+            const url = post['permalink'];
+            dispatch(fetchComment({url, id}))
+        }
+    }
+
+    const commentsInStore = useSelector(selectCommentsInStore(id));
+
+    console.log(post);
 
     return (
         <div className="post-card flex flex-row">
@@ -33,18 +58,22 @@ const Post = ({post}) => {
             </div>
             <div className="post-container">
                 <div className="post-details">
-                    <span className="post-author">Posted by {post.author}</span>
+                    <span className="post-author">Posted by {post.author}  {parseTime(post.created)}</span>
                     <span className="post-date"></span>
                     <div className="post-comments-container"></div>
                 </div>
-                <h3 className="post-title">{post.title}</h3>
+                <a className="post-title" href={post.url}>{post.title}</a>
                 <div className="post-image-container">
                     {valid_url ? <img alt="post" src={valid_url} style={{maxHeight: "512px"}}/> : null}
                 </div>
-                <div className="post-interaction flex items-center">
-                    <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
-                    <div className="post-interaction-comments">{post.num_comments} comments</div>
+                <div>
+                    <Button type="text" className="post-interaction items-center"
+                            style={{display: 'flex', padding: '0'}} onClick={handleClick}>
+                        <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
+                        <div className="post-interaction-comments">{post.num_comments} comments</div>
+                    </Button>
                 </div>
+                {open ? (commentsInStore || loaded ? <Comments comments={comments}/> : <CommentSkeleton/>) : null}
             </div>
         </div>
     )

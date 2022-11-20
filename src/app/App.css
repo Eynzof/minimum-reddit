@@ -75,6 +75,10 @@
   .logo-icon {
     margin-right: 1rem;
   }
+
+  .post-container {
+    width: 580px;
+  }
 }
 
 @media only screen and (max-width: 960px) {
@@ -127,7 +131,6 @@
   margin-bottom: var(--spacing-4);
   border-radius: var(--radius);
   padding: var(--spacing-3);
-  transition: box-shadow .1s ease-in;
   color: var(--color-text-secondary);
 }
 
@@ -149,8 +152,7 @@
 }
 
 .post-container {
-  padding: 0.5rem;
-  width: 100%;
+  padding: 0.5rem
 }
 
 .post-title {
@@ -239,3 +241,5 @@
 .post-author {
   font-size: 12px;
 }
+
+
