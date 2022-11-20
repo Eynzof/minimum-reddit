@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {CommentOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
 import {Button, Modal} from "antd";
+import Comments from "./comments/Comments";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -51,6 +52,7 @@ const Post = ({post}) => {
                         <div className="post-interaction-comments">{post.num_comments} comments</div>
                     </Button>
                 </div>
+                <Comments/>
             </div>
         </div>
     )
