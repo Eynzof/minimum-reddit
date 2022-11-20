@@ -64,6 +64,7 @@
 
   aside {
     width: 310px;
+    height: fit-content;
   }
 
   #header-logo {
@@ -86,6 +87,11 @@
   #post {
     grid-template-columns: 1fr;
     grid-gap: 0 1rem;
+  }
+
+  #main {
+    width: 100vw;
+    min-height: 100vh;
   }
 }
 
