@@ -11,11 +11,11 @@ describe("App.js", () => {
         page = await browser.newPage();
     });
 
-    it("contains the welcome text", async () => {
+    it("contains subreddit text", async () => {
         await page.goto("http://localhost:3000/");
         await page.waitForSelector(".subreddit-title");
         const text = await page.$eval(".subreddit-title", (e) => e.textContent);
-        expect(text).toContain("Subreddits");
+        expect(text).toEqual("Subreddits");
     }, 30000);
 
     afterAll(() => browser.close());
