@@ -3,7 +3,7 @@ import {CommentOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
 import {Button} from "antd";
 import Comments from "./comments/Comments";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchComment, selectCommentsById, selectLoaded} from "./comments/CommentSlice";
+import {fetchComment, selectCommentsById, selectCommentsInStore, selectLoaded} from "./comments/CommentSlice";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -41,7 +41,7 @@ const Post = ({post}) => {
         }
     }
 
-    // const commentsInStore = useSelector(selectCommentsInStore(id));
+    const commentsInStore = useSelector(selectCommentsInStore(id));
 
     return (
         <div className="post-card flex flex-row">
@@ -69,7 +69,7 @@ const Post = ({post}) => {
                         <div className="post-interaction-comments">{post.num_comments} comments</div>
                     </Button>
                 </div>
-                {open ? (loaded ? <Comments comments={comments}/> : <p>loading</p>) : null}
+                {open ? (commentsInStore || loaded ? <Comments comments={comments}/> : <p>loading</p>) : null}
             </div>
         </div>
     )
