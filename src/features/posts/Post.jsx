@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {CommentOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
-import {Button, Modal} from "antd";
+import {Button} from "antd";
 import Comments from "./comments/Comments";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchComment, selectCommentsById, selectLoaded} from "./comments/CommentSlice";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -19,11 +21,27 @@ export function m(n) {
 
 const Post = ({post}) => {
 
-    // console.log("Post received post: ", post);
-    const url = post['url'];
-    const valid_url = checkURL(url) ? url : null;
+    const dispatch = useDispatch();
+
+    const id = post['id'];
+    const imageurl = post['url'];
+    const valid_url = checkURL(imageurl) ? imageurl : null;
 
     const [open, setOpen] = useState(false);
+
+    // Comments
+    const loaded = useSelector(selectLoaded);
+    const comments = useSelector(selectCommentsById(id))
+
+    const handleClick = () => {
+        setOpen(!open);
+        if (!open) {
+            const url = post['permalink'];
+            dispatch(fetchComment({url, id}))
+        }
+    }
+
+    // const commentsInStore = useSelector(selectCommentsInStore(id));
 
     return (
         <div className="post-card flex flex-row">
@@ -40,19 +58,18 @@ const Post = ({post}) => {
                     <span className="post-date"></span>
                     <div className="post-comments-container"></div>
                 </div>
-
-
                 <a className="post-title" href={post.url}>{post.title}</a>
                 <div className="post-image-container">
                     {valid_url ? <img alt="post" src={valid_url} style={{maxHeight: "512px"}}/> : null}
                 </div>
-                <div >
-                    <Button type="text" className="post-interaction items-center" style={{display: 'flex', padding: '0'}} onClick={() => setOpen(true)} >
+                <div>
+                    <Button type="text" className="post-interaction items-center"
+                            style={{display: 'flex', padding: '0'}} onClick={handleClick}>
                         <CommentOutlined style={{fontSize: "20px", marginRight: "4px"}}/>
                         <div className="post-interaction-comments">{post.num_comments} comments</div>
                     </Button>
                 </div>
-                <Comments/>
+                {open ? (loaded ? <Comments comments={comments}/> : <p>loading</p>) : null}
             </div>
         </div>
     )
