@@ -4,6 +4,7 @@ import {Button} from "antd";
 import Comments from "./comments/Comments";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchComment, selectCommentsById, selectCommentsInStore, selectLoaded} from "./comments/CommentSlice";
+import parseTime from "../../utils/parseTime";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -43,6 +44,8 @@ const Post = ({post}) => {
 
     const commentsInStore = useSelector(selectCommentsInStore(id));
 
+    console.log(post);
+
     return (
         <div className="post-card flex flex-row">
             <div className="post-vote-container flex flex-col items-center">
@@ -54,7 +57,7 @@ const Post = ({post}) => {
             </div>
             <div className="post-container">
                 <div className="post-details">
-                    <span className="post-author">Posted by {post.author}</span>
+                    <span className="post-author">Posted by {post.author}  {parseTime(post.created)}</span>
                     <span className="post-date"></span>
                     <div className="post-comments-container"></div>
                 </div>

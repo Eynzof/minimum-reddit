@@ -7,7 +7,7 @@ const Comments = ({comments}) => {
 
     const c = comments[0].data.slice(0,10);
     return (<div className="post-comments mt-2">
-        {c.map(comment => <Comment comment={comment}/>)}
+        {c.map(comment => <Comment key={comment.data.id} comment={comment}/>)}
             {/*<Comment key={comments[0].id} comment={comments[0].data}/>*/}
     </div>)
 }
