@@ -5,6 +5,7 @@ import Comments from "./comments/Comments";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchComment, selectCommentsById, selectCommentsInStore, selectLoaded} from "./comments/CommentSlice";
 import parseTime from "../../utils/parseTime";
+import {CommentSkeleton} from "./comments/CommentSkeleton";
 
 function checkURL(url) {
     return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -72,7 +73,7 @@ const Post = ({post}) => {
                         <div className="post-interaction-comments">{post.num_comments} comments</div>
                     </Button>
                 </div>
-                {open ? (commentsInStore || loaded ? <Comments comments={comments}/> : <p>loading</p>) : null}
+                {open ? (commentsInStore || loaded ? <Comments comments={comments}/> : <CommentSkeleton/>) : null}
             </div>
         </div>
     )

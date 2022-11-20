@@ -37,7 +37,7 @@ export const selectCommentsById = id => store => {
 }
 export const selectLoaded = (state) => state.comments.status === 'succeeded';
 export const selectCommentsInStore = id => store => {
-    return store.comments.comments.filter(comment => comment.id === id).length > 0
+    return store.comments.comments.filter(comment => comment.id === id).length
 }
 
 export default CommentSlice.reducer;
