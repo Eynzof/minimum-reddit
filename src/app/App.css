@@ -131,7 +131,6 @@
   margin-bottom: var(--spacing-4);
   border-radius: var(--radius);
   padding: var(--spacing-3);
-  transition: box-shadow .1s ease-in;
   color: var(--color-text-secondary);
 }
 
