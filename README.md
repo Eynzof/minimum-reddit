@@ -27,3 +27,6 @@ Deployed at https://minimumreddit.eynzo.me.
 
 - Animation
 - Error handle
+- Pagination
+- Video Support
+- Sort by time/popularity
